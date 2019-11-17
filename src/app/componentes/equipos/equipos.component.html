@@ -1,0 +1,21 @@
+<div class="container">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dicta aliquid suscipit at maiores doloremque
+    explicabo esse nihil! Ipsam excepturi commodi molestias ipsum beatae eum repellendus laudantium. Culpa, voluptas
+    laboriosam!</p>
+
+
+  <div class="row">
+    <div class="col-md-3 p-3" *ngFor="let equipo of equipos.teams">
+
+      <div class="card" style="width: 18rem;">
+        <img [src]="equipo.strTeamBadge" class="card-img-top" alt="{{equipo.strTeam}}" width="30">
+        <div class="card-body">
+          <h5 class="card-title">{{equipo.strTeam}}</h5>
+          <p class="card-text">{{equipo.strStadiumLocation}}.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
