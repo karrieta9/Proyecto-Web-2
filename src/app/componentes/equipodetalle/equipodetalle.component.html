@@ -1,0 +1,39 @@
+<p>
+  equipodetalle works!
+</p>
+<div>lorem  
+  dsopkdosd
+dsmidm </div>  
+
+<div class="col-md-3 p-3" *ngFor="let detalle of detalle_equipo.teams; let i = index">
+  <div *ngIf="i==0">
+    <img [src]="detalle.strTeamBadge" class="card-img-top"  width="30">
+    <h5 class="card-title">{{detalle.strTeam}}</h5>
+    <p>{{detalle.strDescriptionEN}}</p>
+    <p>{{detalle.strDescriptionES}}</p>
+    
+    <h5 class="card-title">{{detalle.strStadium}}</h5>
+    <img [src]="detalle.strStadiumThumb" class="card-img-top"  width="30">
+    <p>{{detalle.strStadiumDescription}}</p>
+    
+
+  </div>
+  
+</div>
+    <!-- <div class="col-md-3 p-3" *ngFor="let detalle of detalle_equipo.teams; first at primero">
+      <div *ngIf="primero">
+        </div> -->
+
+      <!-- <div class="card" style="width: 18rem;">
+        <img [src]="detalle.strTeamBadge" class="card-img-top"  width="30">
+        <div class="card-body">
+          
+          <p class="card-text">{{detalle.strStadiumLocation}}.</p>
+          <a class="btn btn-primary" (click)="mostrarEquipo(detalle.strTeam)">Go somewhere</a>
+        </div>
+      </div> -->
+    
+    <!-- </div>
+   -->
+
+

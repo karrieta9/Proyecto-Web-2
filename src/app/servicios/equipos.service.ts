@@ -6,15 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EquiposService {
 
-  API_URI = 'https://www.thesportsdb.com/api';
+  API_URI = 'https://www.thesportsdb.com/api/v1/json';
 
   constructor(private http: HttpClient) { }
 
   getEquipos(){
-    return this.http.get(`${this.API_URI}/v1/json/1/search_all_teams.php?l=English%20Premier%20League`)
+    return this.http.get(`${this.API_URI}/1/search_all_teams.php?l=English%20Premier%20League`)
   }
 
   getEquipo(nombre: string){
-    return this.http.get(`${this.API_URI}/v1/json/1/searchteams.php?sname=${nombre}`)
+    // let name = nombre.replace(" ", "_");
+    return this.http.get(`${this.API_URI}/1/searchteams.php?t=${nombre}`)
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 import { EquiposService } from '../../servicios/equipos.service';
 import { zip } from 'rxjs';
@@ -12,7 +13,7 @@ export class EquiposComponent implements OnInit {
 
   equipos: any = []
 
-  constructor(private equiposService: EquiposService) {}
+  constructor(private equiposService: EquiposService, private router:Router) {}
   
 
   ngOnInit() {
@@ -23,6 +24,13 @@ export class EquiposComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  mostrarEquipo(nombre:string){
+    let name = nombre.replace(" ", "_");
+
+    console.log(name);
+    this.router.navigate(['/equipos/',name]);
   }
 
 }
