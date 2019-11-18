@@ -1,0 +1,103 @@
+.info-header{
+    border:2px solid #37003c;
+    background: #FFF;
+}
+
+h1,h2,h6{
+    font-weight: bold;
+}
+
+.my-6{
+    margin-top: 6rem ;
+    margin-bottom: 1rem;
+}
+
+h6 span{
+    font-weight: 400;
+}
+
+.escudo img{
+    padding: 15px;
+}
+
+.logo img{
+   width: 50%;
+   /* width: 35%; */
+}
+
+.redes_sociales{
+    width: 60%;
+}
+
+.redes_sociales a, .eventos a{
+    color: #37003c;
+}
+
+.redes_sociales a:hover, .eventos a:hover{
+    color: #5C0A64;
+}
+
+.redes_sociales i{
+    font-size: 25px;
+ }
+
+ .info-body{
+    background: #FFF;;
+ }
+
+.info-body .estadio .foto img{
+    width: 100%;
+    border:2px solid #37003c;
+ }
+
+ .info-body .descripcion, .info-body .estadio .descripcion_estadio{
+    text-align: justify;
+    letter-spacing: .7px;
+    line-height: 1.4;
+ }
+
+ .info-body .estadio .descripcion_estadio{
+    line-height: 1.2;
+ }
+
+ .info-body .estadio .camiseta img{
+    width: 65%;
+ }
+ .info-body .plantel .jugador .contenedor-img {
+    overflow: hidden; 
+ }
+
+ .info-body .plantel .jugador .contenedor-img img{
+    transition: transform .5s ease;
+ }
+
+ .info-body .plantel .jugador:hover .contenedor-img img{
+    transform: scale(1.1);
+ }
+
+.info-body .plantel .jugador a{
+    text-decoration:none;
+    color: #000;
+} 
+.info-body .plantel .jugador a h5{
+    font-weight: bold;
+}
+
+.info-body .eventos_tabla .eventos .table .minDate{
+    min-width: 90px;
+}
+.info-body .eventos_tabla .eventos .table .minScore{
+    min-width: 45px;
+}
+
+.eventos a{
+    text-decoration:none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
