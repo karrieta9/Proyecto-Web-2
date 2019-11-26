@@ -22,7 +22,6 @@ h6 span{
 
 .logo img{
    width: 50%;
-   /* width: 35%; */
 }
 
 .redes_sociales{
@@ -94,6 +93,10 @@ h6 span{
     text-decoration:none;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.hi{
+    color: red;
 }
 
 

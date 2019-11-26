@@ -1,0 +1,24 @@
+.info{
+    border:2px solid #37003c;
+    background: #FFF;
+}
+h1,h2,h6{
+    font-weight: bold;
+}
+.nombre{
+    margin-top: 30px;
+}
+h6 span{
+    font-weight: 400;
+}
+.foto img{
+    padding: 10px;
+}
+.dorsal h6{
+    font-family: 'Alatsi', sans-serif;
+    font-size: 112px;
+    text-align: center;
+}
+p{
+    background: #FFF;;
+ }

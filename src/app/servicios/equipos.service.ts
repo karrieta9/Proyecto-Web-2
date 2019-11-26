@@ -15,7 +15,6 @@ export class EquiposService {
   }
 
   getEquipo(nombre: string){
-    // let name = nombre.replace(" ", "_");
     return this.http.get(`${this.API_URI}/1/searchteams.php?t=${nombre}`);
   }
 
@@ -33,5 +32,9 @@ export class EquiposService {
 
   getProximos5(id:string){
     return this.http.get(`${this.API_URI}/1/eventsnext.php?id=${id}`);
+  }
+
+  getTablaPosiciones(){
+    return this.http.get(`${this.API_URI}/1/lookuptable.php?l=4328&s=1920`);
   }
 }

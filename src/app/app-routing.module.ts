@@ -10,11 +10,11 @@ const routes: Routes = [
     path: '',
     component: EquiposComponent
   },
-  {
-    path: 'equipos',
-    redirectTo: '',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: 'equipos',
+  //   redirectTo: '',
+  //   pathMatch: 'full'
+  // },
   {
     path: 'equipos/:nombre',
     component: EquipodetalleComponent

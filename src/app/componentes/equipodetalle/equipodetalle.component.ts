@@ -14,6 +14,7 @@ export class EquipodetalleComponent implements OnInit {
   jugadores: any = [];
   ultimos5:any = [];
   proximos5:any = [];
+  tabla:any = [];
   name:string = '';
 
   constructor(private equiposService: EquiposService, private activatedRoute: ActivatedRoute) { }
@@ -47,6 +48,14 @@ export class EquipodetalleComponent implements OnInit {
           this.equiposService.getProximos5(res['teams'][0]['idTeam']).subscribe(
             res => {
               this.proximos5 = res;
+              console.log(res);
+            },
+            err => console.log(err)
+          )
+
+          this.equiposService.getTablaPosiciones().subscribe(
+            res => {
+              this.tabla = res;
               console.log(res);
             },
             err => console.log(err)

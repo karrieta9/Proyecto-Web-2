@@ -1,5 +1,32 @@
+
 <div class=" p-3" *ngFor="let detalle of detalle_equipo.teams; let i = index">
   <div *ngIf="i==0">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Informacion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']" fragment="plantel"> >Plantel</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Eventos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Tabla</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </nav>
+
+
     <div class="info-header">
       <img [src]="detalle.strTeamBanner" class="card-img-top">
       <div class="row py-3">
@@ -49,7 +76,7 @@
       </div>
       <p class="descripcion_estadio">{{detalle.strStadiumDescription}}</p>
 
-      <div class="plantel my-6">
+      <div class="plantel my-6" id="plantel">
         <h1 class="card-title text-left">Plantel del Equipo</h1>
 
         <div class="row">
@@ -70,45 +97,122 @@
 
       <div class="row eventos_tabla my-6">
         <div class="col-lg-6 eventos">
-            <h2 class="card-title ">Eventos</h2>
-            <div class="table-responsive-sm">
+          <h2 class="card-title ">Eventos</h2>
+          <div class="table-responsive-sm">
             <table class="table table-sm table-hover">
-                <thead>
-                  <tr><th scope="col" colspan="5" class="text-center">Ultimos 5 Partidos</th></tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let evento of ultimos5.results">
-                    <td class="minDate">{{evento.dateEvent}}</td>
-                    <td>Finalizado</td>
-                    <th>{{evento.strHomeTeam}}</th>
-                    <th class="minScore">{{evento.intHomeScore}} - {{evento.intAwayScore}}</th>
-                    <th>{{evento.strAwayTeam}}</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="table-responsive-sm">
-                <table class="table table-sm table-hover">
-                    <thead>
-                      <tr><th scope="col" colspan="5" class="text-center">Proximos 5 Partidos</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let evento of proximos5.events">
-                        <td class="minDate">{{evento.dateEvent}}</td>
-                        <td>{{evento.strTime}}</td>
-                        <th>{{evento.strHomeTeam}}</th>
-                        <th class="minScore">Vs</th>
-                        <th>{{evento.strAwayTeam}}</th>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-             <a href="#"><i class="fa fa-futbol-o" aria-hidden="true"></i> Partidos de la Temporada</a>   
+              <thead>
+                <tr><th scope="col" colspan="5" class="text-center">Ultimos 5 Partidos</th></tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let evento of ultimos5.results">
+                  <td class="minDate">{{evento.dateEvent}}</td>
+                  <td>Finalizado</td>
+                  <th>{{evento.strHomeTeam}}</th>
+                  <th class="minScore">{{evento.intHomeScore}} - {{evento.intAwayScore}}</th>
+                  <th>{{evento.strAwayTeam}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-responsive-sm">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr><th scope="col" colspan="5" class="text-center">Proximos 5 Partidos</th></tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let evento of proximos5.events">
+                  <td class="minDate">{{evento.dateEvent}}</td>
+                  <td>{{evento.strTime}}</td>
+                  <th>{{evento.strHomeTeam}}</th>
+                  <th class="minScore">Vs</th>
+                  <th>{{evento.strAwayTeam}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="#"><i class="fa fa-futbol-o" aria-hidden="true"></i> Partidos de la Temporada</a>
         </div>
-        <div class="col-lg-6-tabla">
-            <h2 class="card-title text-left">Tabla de Posiciones</h2>
+        <div class="col-lg-6 tabla float-right">
+          <h2 class="card-title text-left ">Tabla de Posiciones</h2>
+          <div class="table-responsive-sm ">
+            <table class="table table-sm table-hover ">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col" class="text-center">Equipo</th>
+                  <th scope="col">PJ</th>
+                  <th scope="col">PG</th>
+                  <th scope="col">PE</th>
+                  <th scope="col">PP</th>
+                  <th scope="col">GA</th>
+                  <th scope="col">GF</th>
+                  <th scope="col">DF</th>
+                  <th scope="col">Pts.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let equipopos of tabla.table; let i = index">
+                  
+                    <ng-container *ngIf="equipopos.teamid == detalle.idTeam; else otros">
+                      <td class="minDate"><strong>{{i+1}}</strong></td>
+                      <td class="minDate"><strong>{{equipopos.name}}</strong></td>
+                      <td><strong>{{equipopos.played}}</strong></td>
+                      <td><strong>{{equipopos.win}}</strong></td>
+                      <td><strong>{{equipopos.draw}}</strong></td>
+                      <td><strong>{{equipopos.loss}}</strong></td>
+                      <td><strong>{{equipopos.goalsfor}}</strong></td>
+                      <td><strong>{{equipopos.goalsagainst}}</strong></td>
+                      <td><strong>{{equipopos.goalsdifference}}</strong></td>
+                      <td><strong>{{equipopos.total}}</strong></td>
+                    </ng-container>
+                    
+                    <ng-template #otros>
+                      <td class="minDate">{{i+1}}</td>
+                      <td class="minDate">{{equipopos.name}}</td>
+                      <td>{{equipopos.played}}</td>
+                      <td>{{equipopos.win}}</td>
+                      <td>{{equipopos.draw}}</td>
+                      <td>{{equipopos.loss}}</td>
+                      <td>{{equipopos.goalsfor}}</td>
+                      <td>{{equipopos.goalsagainst}}</td>
+                      <td>{{equipopos.goalsdifference}}</td>
+                      <td>{{equipopos.total}}</td>
+                    </ng-template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
+
+      <!-- <div id="carousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-50" [src]="detalle.strTeamFanart1" alt="Fanart 1">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-50" [src]="detalle.strTeamFanart2" alt="Fanart 2">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-50" [src]="detalle.strTeamFanart3" alt="Fanart 3">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+          </a>
+        </div> -->
+
+
     </div>
   </div>
 </div>

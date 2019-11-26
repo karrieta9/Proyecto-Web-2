@@ -1,3 +1,39 @@
-<p>
-  jugadordetalle works!
-</p>
+<div class=" p-3" *ngFor="let detalle of detalle_jugador.players; let i = index">
+  <div *ngIf="i==0">
+    <div class="info">
+      <div class="row py-3">
+        <div class="col-md-3">
+          <div class="foto text-center">
+            <ng-container *ngIf="detalle.strCutout != null; else foto">
+              <img [src]="detalle.strCutout" class="card-img-top">
+            </ng-container>
+            <ng-template #foto>
+              <img [src]="detalle.strThumb" class="card-img-top">
+            </ng-template>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <h1 class="card-title nombre">{{detalle.strPlayer}}</h1>
+          <div class="row">
+            <div class="col-md-5">
+              <h6>Fecha de Nacimiento: <span>{{detalle.dateBorn}}</span></h6>
+              <h6>Lugar de Nacimiento: <span>{{detalle.strBirthLocation}}</span></h6>
+              <h6>Nacionalidad: <span>{{detalle.strNationality}}</span></h6>
+              <h6>Altura: <span>{{detalle.strHeight}}</span></h6>
+            </div>
+            <div class="col-md-4">
+              <h6>Equipo: <span>{{detalle.strTeam}}</span></h6>
+              <h6>Posicion: <span>{{detalle.strPosition}}</span></h6>
+              <h6>Fecha Fichado: <span>{{detalle.dateSigned}}</span></h6>
+              <h6>Valor Fichado: <span>{{detalle.strSigning}}</span></h6>
+            </div>
+            <div class="col-md-2 dorsal">
+              <h6>{{detalle.strNumber}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="descripcion">{{detalle.strDescriptionEN}}</p>
+  </div>
+</div>
