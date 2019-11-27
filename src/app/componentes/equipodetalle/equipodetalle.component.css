@@ -58,7 +58,7 @@
  }
 
  .info-body .plantel .jugador:hover .contenedor-img img{
-    transform: scale(1.1);
+    transform: scale(1.2);
  }
 
 .info-body .plantel .jugador a{
@@ -75,9 +75,6 @@
     font-size: 1.2rem;
 }
 
-.hi{
-    color: red;
-}
 
 
 

@@ -1,0 +1,53 @@
+.card{
+    border:2px solid #37003c;
+    cursor: pointer;
+}
+.body{
+    border:2px solid #37003c;
+    background: #FFF;
+}
+.card {
+    overflow: hidden;
+
+}
+.favorito{
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ width: 100%;
+}
+.card .card-body h6{
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,.8);
+    width: 100%;
+    font-size: 1.6rem;
+}
+.card .card-body .favorito label{
+    bottom: 32px;
+    font-size: 25px;
+    left: 10px;
+    color: #f6ba58;
+    cursor: pointer;
+}
+.card .card-body .favorito input[type="checkbox"]{
+    display: none;
+}
+
+.card .card-body .favorito label:after{
+    content: '\f006';
+    font-family: FontAwesome;
+    position: absolute;
+    transition: all 0.5 ease;
+}
+
+.card .card-body .favorito input[type="checkbox"]:checked + label:after{
+    /* color:red; */
+    content: '\f005';
+    font-family: FontAwesome;
+}
+
+.card img{
+    transform: scale(1.5);
+}
+

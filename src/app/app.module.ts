@@ -12,6 +12,8 @@ import { EquipodetalleComponent } from './componentes/equipodetalle/equipodetall
 import { JugadordetalleComponent } from './componentes/jugadordetalle/jugadordetalle.component';
 import { PartidodetalleComponent } from './componentes/partidodetalle/partidodetalle.component';
 import { PartidosComponent } from './componentes/partidos/partidos.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PartidosComponent } from './componentes/partidos/partidos.component';
     EquipodetalleComponent,
     JugadordetalleComponent,
     PartidodetalleComponent,
-    PartidosComponent
+    PartidosComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

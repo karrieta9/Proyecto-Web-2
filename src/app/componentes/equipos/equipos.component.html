@@ -1,20 +1,46 @@
-
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dicta aliquid suscipit at maiores doloremque
-    explicabo esse nihil! Ipsam excepturi commodi molestias ipsum beatae eum repellendus laudantium. Culpa, voluptas
-    laboriosam!</p>
-
-
-  <div class="row">
-    <div class="col-md-3 p-3" *ngFor="let equipo of equipos.teams">
-
-      <div class="card" style="width: 18rem;">
-        <img [src]="equipo.strTeamBadge" class="card-img-top" alt="{{equipo.strTeam}}" width="30">
-        <div class="card-body">
-          <h5 class="card-title">{{equipo.strTeam}}</h5>
-          <p class="card-text">{{equipo.strStadiumLocation}}.</p>
-          <a class="btn btn-primary" (click)="mostrarEquipo(equipo.strTeam)">Go somewhere</a>
+<div class="body px-3">
+  <div *ngIf="favoritosService.favoritos.length != 0">
+    <h1>Favoritos</h1>
+    <div class="row">
+      <div class="col-md-3 p-3" *ngFor="let equipo of favoritosService.favoritos; let i = index">
+        <div class="card text-white">
+          <div (click)="mostrarEquipo(equipo.strTeam)">
+            <img [src]="equipo.strTeamBadge" class="card-img" alt="{{equipo.strTeam}}">
+          </div>
+          <div class="card-body p-0">
+            <h6 class="card-title p-2 m-0">{{equipo.strTeam}}</h6>
+            <div class="favorito d-flex flex-row-reverse">
+              <input class="col-lg-2" type="checkbox" id="del{{i+1}}" (click)="eliminarFavorito(equipo)" checked>
+              <label for="del{{i+1}}" class=" col-lg-3" title="¡Eliminar de Favoritos!"></label>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <hr>
+  </div>
 
+  <h1>Equipos</h1>
+  <div class="row">
+    <div class="col-md-3 p-3" *ngFor="let equipo of equipos.teams;let i = index">
+      <div class="card text-white">
+        <div (click)="mostrarEquipo(equipo.strTeam)">
+          <img [src]="equipo.strTeamBadge" class="card-img" alt="{{equipo.strTeam}}">
+        </div>
+        <div class="card-body p-0">
+          <h6 class="card-title p-2 m-0">{{equipo.strTeam}}</h6>
+          <div class="favorito d-flex flex-row-reverse">
+            <ng-container *ngIf="comparacion(equipo);else nofav">
+              <input class="col-lg-2" type="checkbox" id="del{{i+1}}" (click)="eliminarFavorito(equipo)" checked>
+              <label for="del{{i+1}}" class=" col-lg-3" title="¡Eliminar de Favoritos!"></label>
+            </ng-container>
+            <ng-template #nofav>
+              <input class="col-lg-2" type="checkbox" id="fav{{i+1}}" (click)="favoritos(equipo)">
+              <label for="fav{{i+1}}" class=" col-lg-3" title="¡Añadir a Favoritos!"></label>
+            </ng-template>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
