@@ -26,7 +26,6 @@ export class JugadordetalleComponent implements OnInit {
         err => console.log(err)
       )
     }
-    console.log(params);
 
   }
 

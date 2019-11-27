@@ -1,0 +1,80 @@
+<p>
+  partidodetalle works!
+</p>
+
+<div class=" p-3" *ngFor="let detalle of detalle_partido.events">
+  <div class="info_partido py-3">
+    <!-- <h1>{{detalle.strLeague}}</h1> -->
+
+    <div class="col-lg-12 row m-0">
+      <div class="col-lg-4 equipos text-center py-3" (click)="mostrarEquipo(detalle.strHomeTeam)">
+        <ng-container *ngFor="let equipo of local.teams">
+          <div class="escudo p-1">
+            <img [src]="equipo.strTeamBadge" class="card-img-top">
+          </div>
+        </ng-container>
+        <h5 class="mt-2"><span>{{detalle.strHomeTeam}}</span></h5>
+      </div>
+      <div class="col-lg-4 resultado text-center p-4">
+        <h5 class="fecha m-0">{{detalle.dateEvent}}</h5>
+        <h5 class="res m-0"><span>{{detalle.intHomeScore}} - {{detalle.intAwayScore}}</span></h5>
+        <h5 class="finalizado m-0">Finalizado</h5>
+      </div>
+      <div class="col-lg-4 equipos text-center py-3" (click)="mostrarEquipo(detalle.strAwayTeam)">
+        <ng-container *ngFor="let equipo of visitante.teams">
+          <div class="escudo p-1">
+            <img [src]="equipo.strTeamBadge" class="card-img-top">
+          </div>
+        </ng-container>
+        <h5 class="mt-2"><span>{{detalle.strAwayTeam}}</span></h5>
+      </div>
+    </div>
+    <hr>
+    <div class="col-lg-12">
+      <h5 class="text-center"><span>RESUMEN</span></h5>
+      <div class="resumen">
+        <div class="row goles p-2">
+          <div class="col-lg-5 text-right py-1">{{detalle.strHomeGoalDetails}}</div>
+          <div class="col-lg-2 text-center icono"><i class="fa fa-futbol-o p-1" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-5 py-1">{{detalle.strAwayGoalDetails}}</div>
+        </div>
+        <div class="row amarillas p-2">
+          <div class="col-lg-5 text-right py-1">{{detalle.strHomeYellowCards}}</div>
+          <div class="col-lg-2 text-center icono">
+            <div class="m-auto"></div>
+          </div>
+          <div class="col-lg-5 py-2">{{detalle.strAwayYellowCards}}</div>
+        </div>
+        <div class="row rojas p-2">
+          <div class="col-lg-5 text-right py-1">{{detalle.strHomeRedCards}}</div>
+          <div class="col-lg-2 text-center icono">
+            <div class="m-auto"></div>
+          </div>
+          <div class="col-lg-5 py-2">{{detalle.strAwayRedCards}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 p-5">
+        <h5 class="text-center"><span>ALINEACIONES</span></h5>
+        <div class="row py-2">
+          <div class="col-lg-6 ">
+              <h6>Portero: <span>{{detalle.strHomeLineupGoalkeeper}}</span></h6>
+              <h6>Defensas: <span>{{detalle.strHomeLineupDefense}}</span></h6>
+              <h6>Mediocampistas: <span>{{detalle.strHomeLineupMidfield}}</span></h6>
+              <h6>Delanteros: <span> {{detalle.strHomeLineupForward}}</span></h6>
+
+              <h6 class="py-4">Sustitutos: <span> {{detalle.strHomeLineupSubstitutes}}</span></h6>
+          </div>
+          <div class="col-lg-6 ">
+              <h6>Portero: <span>{{detalle.strAwayLineupGoalkeeper}}</span></h6>
+              <h6>Defensas: <span>{{detalle.strAwayLineupDefense}}</span></h6>
+              <h6>Mediocampistas: <span>{{detalle.strAwayLineupMidfield}}</span></h6>
+              <h6>Delanteros: <span> {{detalle.strAwayLineupForward}}</span></h6>
+
+              <h6 class="py-4">Sustitutos: <span> {{detalle.strAwayLineupSubstitutes}}</span></h6>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

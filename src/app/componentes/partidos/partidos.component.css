@@ -1,0 +1,20 @@
+.contenedor-partidos{
+    background: #FFF;
+    border:2px solid #37003c;
+}
+
+.header h2{
+    line-height: 4;
+}
+
+.header .logo{
+    padding-top: 10px;
+}
+
+.header .logo img{
+   width: 20%;
+}
+
+.detalle_partido{
+    cursor: pointer;
+}

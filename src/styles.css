@@ -4,6 +4,30 @@ body{
     font-family: 'Quicksand', sans-serif;
 }
 
+.minDate{
+    min-width: 100px;
+}
+.minScore{
+    min-width: 50px;
+}
+
+h1,h2,h6{
+    font-weight: bold;
+}
+h6 span{
+    font-weight: 400;
+}
+
+.my-6{
+    margin-top: 6rem ;
+    margin-bottom: 1rem;
+}
+
+p{
+    background: #FFF;;
+    letter-spacing: .7px;
+    line-height: 1.4;
+ }
 
 @media (max-width: 576px){
     .container {

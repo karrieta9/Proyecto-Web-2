@@ -3,19 +3,6 @@
     background: #FFF;
 }
 
-h1,h2,h6{
-    font-weight: bold;
-}
-
-.my-6{
-    margin-top: 6rem ;
-    margin-bottom: 1rem;
-}
-
-h6 span{
-    font-weight: 400;
-}
-
 .escudo img{
     padding: 15px;
 }
@@ -49,7 +36,7 @@ h6 span{
     border:2px solid #37003c;
  }
 
- .info-body .descripcion, .info-body .estadio .descripcion_estadio{
+ .info-body .descripcion, .info-body .descripcion_estadio{
     text-align: justify;
     letter-spacing: .7px;
     line-height: 1.4;
@@ -80,13 +67,6 @@ h6 span{
 } 
 .info-body .plantel .jugador a h5{
     font-weight: bold;
-}
-
-.info-body .eventos_tabla .eventos .table .minDate{
-    min-width: 90px;
-}
-.info-body .eventos_tabla .eventos .table .minScore{
-    min-width: 45px;
 }
 
 .eventos a{

@@ -4,18 +4,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EquiposComponent } from './componentes/equipos/equipos.component';
 
 import { EquiposService } from './servicios/equipos.service';
+
+import { EquiposComponent } from './componentes/equipos/equipos.component';
 import { EquipodetalleComponent } from './componentes/equipodetalle/equipodetalle.component';
 import { JugadordetalleComponent } from './componentes/jugadordetalle/jugadordetalle.component';
+import { PartidodetalleComponent } from './componentes/partidodetalle/partidodetalle.component';
+import { PartidosComponent } from './componentes/partidos/partidos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EquiposComponent,
     EquipodetalleComponent,
-    JugadordetalleComponent
+    JugadordetalleComponent,
+    PartidodetalleComponent,
+    PartidosComponent
   ],
   imports: [
     BrowserModule,

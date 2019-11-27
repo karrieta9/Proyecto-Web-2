@@ -1,0 +1,47 @@
+.info_partido{
+    background: #FFF;
+    border:2px solid #37003c;
+}
+h5 span{
+    font-weight: bold;
+}
+.info_partido .equipos{
+    cursor: pointer;
+}
+
+.info_partido .equipos .escudo{
+    margin: auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.fecha{
+    font-size: 18px;
+}
+.finalizado{
+    font-size: 15px;
+}
+.res{
+    font-size: 70px;
+}
+
+.info_partido .resumen .icono{
+    font-size: 30px;
+    color: #37003c;
+}
+
+.info_partido .resumen .icono div{
+    width: 30px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.info_partido .resumen .amarillas .icono div{
+    background: #fee433;
+}
+.info_partido .resumen .rojas .icono div{
+    background: #E83E3E
+}
+
+
+

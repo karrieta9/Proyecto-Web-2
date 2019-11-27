@@ -109,7 +109,7 @@
                   <td>Finalizado</td>
                   <th>{{evento.strHomeTeam}}</th>
                   <th class="minScore">{{evento.intHomeScore}} - {{evento.intAwayScore}}</th>
-                  <th>{{evento.strAwayTeam}}</th>
+                  <th class="text-right">{{evento.strAwayTeam}}</th>
                 </tr>
               </tbody>
             </table>
@@ -125,12 +125,12 @@
                   <td>{{evento.strTime}}</td>
                   <th>{{evento.strHomeTeam}}</th>
                   <th class="minScore">Vs</th>
-                  <th>{{evento.strAwayTeam}}</th>
+                  <th class="text-right">{{evento.strAwayTeam}}</th>
                 </tr>
               </tbody>
             </table>
           </div>
-          <a href="#"><i class="fa fa-futbol-o" aria-hidden="true"></i> Partidos de la Temporada</a>
+          <a [routerLink]="['/equipos',name,'partidos']"><i class="fa fa-futbol-o pt-4" aria-hidden="true"></i> Partidos de la Temporada</a>
         </div>
         <div class="col-lg-6 tabla float-right">
           <h2 class="card-title text-left ">Tabla de Posiciones</h2>

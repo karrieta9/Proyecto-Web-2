@@ -18,6 +18,10 @@ export class EquiposService {
     return this.http.get(`${this.API_URI}/1/searchteams.php?t=${nombre}`);
   }
 
+  getEquipoId(id: string){
+    return this.http.get(`${this.API_URI}/1/lookupteam.php?id=${id}`);
+  }
+
   getJugadores(id: string){
     return this.http.get(`${this.API_URI}/1/lookup_all_players.php?id=${id}`);
   }
@@ -36,5 +40,13 @@ export class EquiposService {
 
   getTablaPosiciones(){
     return this.http.get(`${this.API_URI}/1/lookuptable.php?l=4328&s=1920`);
+  }
+
+  getPartidos(){
+    return this.http.get(`${this.API_URI}/1/eventsseason.php?id=4328&s=1920`);
+  }
+
+  getPartido(id:string){
+    return this.http.get(`${this.API_URI}/1/lookupevent.php?id=${id}`);
   }
 }

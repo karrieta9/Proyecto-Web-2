@@ -1,0 +1,52 @@
+<p>
+  partidos works!
+</p>
+
+<div class="contenedor-partidos p-3">
+  <ng-container class=" p-3" *ngFor="let equipo of equipo.teams; let i = index">
+    <ng-container *ngIf="i==0">
+        <div class="header row">
+          <div class="col-6">
+            <h2 class="card-title ">Temporada</h2>
+          </div>
+          <div class="col-6 text-right logo">
+            <img [src]="equipo.strTeamBadge" class="card-img-top">
+          </div>
+        </div>
+        
+      <div class="table-responsive-sm">
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col" colspan="5" class="text-center">Partidos de {{equipo.strTeam}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let partido of partidos.events;">
+              <ng-container *ngIf="partido.idAwayTeam == equipo.idTeam || partido.idHomeTeam == equipo.idTeam">
+                <ng-container *ngIf="partido.intHomeScore != null && partido.intAwayScore != null ; else nojugados">
+                  <tr [routerLink]="['/equipos',name,'partidos',partido.idEvent]" class="detalle_partido">
+                    <td class="minDate">{{partido.dateEvent}}</td>
+                    <td>Finalizado</td>
+                    <th>{{partido.strHomeTeam}}</th>
+                    <th class="minScore">{{partido.intHomeScore}} - {{partido.intAwayScore}}</th>
+                    <th class="text-right">{{partido.strAwayTeam}}</th>
+                  </tr>
+                </ng-container>
+                <ng-template #nojugados>
+                  <tr>
+                    <td class="minDate">{{partido.dateEvent}}</td>
+                    <td>{{partido.strTime}}</td>
+                    <th>{{partido.strHomeTeam}}</th>
+                    <th class="minScore">Vs</th>
+                    <th class="text-right">{{partido.strAwayTeam}}</th>
+                  </tr>
+                </ng-template>
+              </ng-container>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
