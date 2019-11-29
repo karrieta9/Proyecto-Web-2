@@ -21,7 +21,6 @@ export class JugadordetalleComponent implements OnInit {
       this.equiposService.getJugador(params.id).subscribe(
         res => {
           this.detalle_jugador = res;
-          console.log(res);
         },
         err => console.log(err)
       )

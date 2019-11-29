@@ -43,5 +43,16 @@ h5 span{
     background: #E83E3E
 }
 
+.info_partido .nombre_equipo{
+   text-transform: uppercase;
+}
+
+@media (min-width: 960px){
+    .info_partido .nombre_equipo{
+       display: none;
+     }
+}
+
+
 
 

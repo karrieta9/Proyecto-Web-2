@@ -27,12 +27,10 @@ export class EquipodetalleComponent implements OnInit {
       this.equiposService.getEquipo(params.nombre).subscribe(
         res => {
           this.detalle_equipo = res;
-          console.log(res);
 
           this.equiposService.getJugadores(res['teams'][0]['idTeam']).subscribe(
             res => {
               this.jugadores = res;
-              console.log(res);
             },
             err => console.log(err)
           )
@@ -40,7 +38,6 @@ export class EquipodetalleComponent implements OnInit {
           this.equiposService.getUltimos5(res['teams'][0]['idTeam']).subscribe(
             res => {
               this.ultimos5 = res;
-              console.log(res);
             },
             err => console.log(err)
           )
@@ -48,7 +45,6 @@ export class EquipodetalleComponent implements OnInit {
           this.equiposService.getProximos5(res['teams'][0]['idTeam']).subscribe(
             res => {
               this.proximos5 = res;
-              console.log(res);
             },
             err => console.log(err)
           )
@@ -56,7 +52,6 @@ export class EquipodetalleComponent implements OnInit {
           this.equiposService.getTablaPosiciones().subscribe(
             res => {
               this.tabla = res;
-              console.log(res);
             },
             err => console.log(err)
           )
@@ -66,7 +61,6 @@ export class EquipodetalleComponent implements OnInit {
       )
     }
 
-    console.log(params);
   }
 
 }

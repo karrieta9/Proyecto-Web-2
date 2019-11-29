@@ -1,19 +1,15 @@
-<p>
-  partidos works!
-</p>
-
-<div class="contenedor-partidos p-3">
-  <ng-container class=" p-3" *ngFor="let equipo of equipo.teams; let i = index">
-    <ng-container *ngIf="i==0">
-        <div class="header row">
-          <div class="col-6">
-            <h2 class="card-title ">Temporada</h2>
-          </div>
-          <div class="col-6 text-right logo">
-            <img [src]="equipo.strTeamBadge" class="card-img-top">
-          </div>
+<ng-container class=" p-3" *ngFor="let equipo of equipo.teams; let i = index">
+  <ng-container *ngIf="i==0">
+    <div class="contenedor-partidos p-3">
+      <div class="header row">
+        <div class="col-6">
+          <h2 class="card-title ">Temporada</h2>
         </div>
-        
+        <div class="col-6 text-right logo">
+          <img [src]="equipo.strTeamBadge" class="card-img-top">
+        </div>
+      </div>
+
       <div class="table-responsive-sm">
         <table class="table table-sm table-hover">
           <thead>
@@ -47,6 +43,8 @@
           </tbody>
         </table>
       </div>
-    </ng-container>
+
+
+    </div>
   </ng-container>
-</div>
+</ng-container>

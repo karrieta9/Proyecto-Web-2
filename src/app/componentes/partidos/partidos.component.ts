@@ -25,12 +25,10 @@ export class PartidosComponent implements OnInit {
       this.equiposService.getPartidos().subscribe(
         res => {
           this.partidos = res;
-          console.log(res);
 
           this.equiposService.getEquipo(params.nombre).subscribe(
             res => {
               this.equipo = res;
-              console.log(res);
             },
             err => console.log(err)
           )
@@ -39,7 +37,6 @@ export class PartidosComponent implements OnInit {
       )
     }
 
-    console.log(params);
   }
 
 }

@@ -37,6 +37,10 @@ const routes: Routes = [
   {
     path: 'equipos/:nombre/partidos/:idpartido',
     component: PartidodetalleComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

@@ -1,39 +1,35 @@
-<div class=" p-3" *ngFor="let detalle of detalle_jugador.players; let i = index">
-  <div *ngIf="i==0">
+<ng-container class=" p-3" *ngFor="let detalle of detalle_jugador.players; let i = index">
+  <ng-container *ngIf="i==0">
     <div class="info">
       <div class="row py-3">
-        <div class="col-md-3">
-          <div class="foto text-center">
-            <ng-container *ngIf="detalle.strCutout != null; else foto">
-              <img [src]="detalle.strCutout" class="card-img-top">
-            </ng-container>
-            <ng-template #foto>
-              <img [src]="detalle.strThumb" class="card-img-top">
-            </ng-template>
+        <div class=" col-lg-3">
+          <div class="foto text-center  px-5 pb-0 pt-5 p-lg-0">
+              <img [src]="detalle.strCutout || detalle.strThumb" class="card-img-top">
           </div>
         </div>
-        <div class="col-md-9">
+        <div class=" col-lg-9 px-5 p-lg-0">
           <h1 class="card-title nombre">{{detalle.strPlayer}}</h1>
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-6 col-lg-5">
               <h6>Fecha de Nacimiento: <span>{{detalle.dateBorn}}</span></h6>
               <h6>Lugar de Nacimiento: <span>{{detalle.strBirthLocation}}</span></h6>
               <h6>Nacionalidad: <span>{{detalle.strNationality}}</span></h6>
               <h6>Altura: <span>{{detalle.strHeight}}</span></h6>
             </div>
-            <div class="col-md-4">
+            <div class="col-6 col-lg-4">
               <h6>Equipo: <span>{{detalle.strTeam}}</span></h6>
               <h6>Posicion: <span>{{detalle.strPosition}}</span></h6>
-              <h6>Fecha Fichado: <span>{{detalle.dateSigned}}</span></h6>
-              <h6>Valor Fichado: <span>{{detalle.strSigning}}</span></h6>
+              <h6>Fecha Fichado: <span>{{detalle.dateSigned || 'No Registra'}}  </span></h6>
+              <h6>Valor Fichado: <span>{{detalle.strSigning || 'No Registra'}}</span></h6>
             </div>
-            <div class="col-md-2 dorsal">
+            <div class="col-12 col-lg-2 dorsal">
               <h6>{{detalle.strNumber}}</h6>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <p class="descripcion p-3 text-justify">{{detalle.strDescriptionEN}}</p>
+    
+    <p class="descripcion p-3 text-justify mb-0">{{detalle.strDescriptionEN}}</p>
   </div>
-</div>
+  </ng-container>
+</ng-container>

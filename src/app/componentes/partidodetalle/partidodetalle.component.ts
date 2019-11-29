@@ -20,18 +20,15 @@ export class PartidodetalleComponent implements OnInit {
   ngOnInit() {
     
     const params = this.activatedRoute.snapshot.params;
-    console.log(params);
 
     if (params.nombre && params.idpartido) {
       
       this.equiposService.getPartido(params.idpartido).subscribe(
         res => {
           this.detalle_partido = res;
-          console.log(res);
           this.equiposService.getEquipoId(res['events'][0]['idHomeTeam']).subscribe(
             res => {
               this.local = res;
-              console.log(res);
             },
             err => console.log(err)
           )
@@ -39,7 +36,6 @@ export class PartidodetalleComponent implements OnInit {
           this.equiposService.getEquipoId(res['events'][0]['idAwayTeam']).subscribe(
             res => {
               this.visitante = res;
-              console.log(res);
             },
             err => console.log(err)
           )
@@ -53,8 +49,6 @@ export class PartidodetalleComponent implements OnInit {
 
   mostrarEquipo(nombre:string){
     let name = nombre.replace(" ", "_");
-
-    console.log(name);
     this.router.navigate(['/equipos/',name]);
   }
 }

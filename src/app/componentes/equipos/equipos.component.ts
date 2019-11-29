@@ -21,11 +21,10 @@ export class EquiposComponent implements OnInit {
     this.equiposService.getEquipos().subscribe(
       res => {
         this.equipos = res;
-        console.log(res);
       },
       err => console.log(err)
     );
-    console.log(this.favoritosService.getFavoritos_LocalStorage());
+    (this.favoritosService.getFavoritos_LocalStorage());
   }
 
   mostrarEquipo(nombre: string) {
@@ -35,7 +34,7 @@ export class EquiposComponent implements OnInit {
 
   favoritos(equipo: any) {
     this.favoritosService.saveFavoritos_LocalStorage(equipo);
-    console.log(this.favoritosService.getFavoritos_LocalStorage())
+    (this.favoritosService.getFavoritos_LocalStorage())
   }
   eliminarFavorito(equipo: any) {
     this.favoritosService.deleteFavoritos_LocalStorage(equipo);

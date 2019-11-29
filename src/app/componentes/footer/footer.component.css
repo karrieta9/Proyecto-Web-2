@@ -1,0 +1,22 @@
+footer {
+    background: #200123;
+    
+}
+footer span{
+    font-weight: bold;
+}
+
+.icono{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.icono i{
+    font-size: 30px;
+    font-weight: bold;
+    color:#200123;
+}
+

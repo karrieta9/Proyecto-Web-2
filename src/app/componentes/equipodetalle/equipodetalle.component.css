@@ -1,4 +1,4 @@
-.info-header{
+.informacion_equipo{
     border:2px solid #37003c;
     background: #FFF;
 }
@@ -68,6 +68,10 @@
 .info-body .plantel .jugador a h5{
     font-weight: bold;
 }
+
+.info-body .plantel .jugador .card-footer{
+    min-height: 64px;
+ }
 
 .eventos a{
     text-decoration:none;
