@@ -1,0 +1,58 @@
+.card{
+    border:2px solid #37003c;
+    cursor: pointer;
+}
+.body{
+    border:2px solid #37003c;
+    background: #FFF;
+}
+.card {
+    overflow: hidden;
+
+}
+
+.card img{
+    padding: 10px 20px 50px 20px;
+}
+.card .card-body h6{
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,.8);
+    width: 100%;
+    font-size: 1.6rem;
+}
+.card .card-body .flag label{
+    bottom: 32px;
+    font-size: 25px;
+    left: 10px;
+    color: #f6ba58;
+    cursor: pointer;
+}
+
+
+.card .card-body .flag{
+    position: absolute;
+    bottom: 0.4rem;
+    right: 0.5rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.card .card-body .flag img{
+    transform: scale(1.8);
+}
+
+@media (min-width: 0px) and (max-width: 1199px){
+    
+    .card .card-body .flag {
+        display: none !important;
+    }
+    .card .card-body h6{
+        font-size: 1.1rem;
+    }
+
+}
+
+

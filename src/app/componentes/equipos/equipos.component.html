@@ -1,46 +1,114 @@
-<div class="body px-4">
-  <div *ngIf="favoritosService.favoritos.length != 0">
+<div class="body px-4 " id="myDiv">
+
+  <ng-container *ngIf="favoritosService.favoritos.length != 0">
     <h1 class="mt-2">Favoritos</h1>
     <div class="row">
-      <div class="col-6 col-sm-4 col-lg-3 p-3" *ngFor="let equipo of favoritosService.favoritos; let i = index">
-        <div class="card text-white">
-          <div (click)="mostrarEquipo(equipo.strTeam)">
-            <img [src]="equipo.strTeamBadge" class="card-img" alt="{{equipo.strTeam}}">
+      <ng-container *ngFor="let equipo of favoritosService.favoritos; let i = index">
+        <ng-container *ngIf='equipo.idLeague === id; else nofav'>
+          <div class="col-6 col-sm-4 col-lg-2 p-3">
+            <div class="card text-white">
+              <div (click)="mostrarEquipo(equipo.strTeam,id)">
+                <img [src]="equipo.strTeamBadge" class="card-img" alt="{{equipo.strTeam}}">
+              </div>
+              <div class="card-body p-0">
+                <h6 class="card-title p-2 m-0">{{equipo.strTeam}}</h6>
+                <div class="favorito d-flex flex-row-reverse">
+                  <button id="del{{i+1}}" type="button" class="btn btn-warning btn-sm mr-1" title="¡Eliminar de Favoritos!"
+                    (click)="eliminarFavorito(equipo)"><i class="fa fa-star"></i></button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-body p-0">
-            <h6 class="card-title p-2 m-0">{{equipo.strTeam}}</h6>
-            <div class="favorito d-flex flex-row-reverse">
-              <input class="col-lg-2" type="checkbox" id="del{{i+1}}" (click)="eliminarFavorito(equipo)" checked>
-              <label for="del{{i+1}}" class=" col-lg-3" title="¡Eliminar de Favoritos!"></label>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <h1 class="mt-2">Equipos</h1>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-6 col-sm-4 col-lg-3 p-3" *ngFor="let equipo of equipos.teams;let i = index">
+          <div class="card text-white">
+            <div (click)="mostrarEquipo(equipo.strTeam,id)">
+              <img [src]="equipo.strTeamBadge" class="card-img" alt="{{equipo.strTeam}}">
+            </div>
+            <div class="card-body p-0">
+              <h6 class="card-title p-2 m-0">{{equipo.strTeam}}</h6>
+              <div class="favorito d-flex flex-row-reverse">
+                <ng-container *ngIf="comparacion(equipo);else nofav">
+                  <button id="del{{i+1}}" type="button" class="btn btn-warning btn-sm mr-1" title="¡Eliminar de Favoritos!"
+                    (click)="eliminarFavorito(equipo)"><i class="fa fa-star"></i></button>
+                </ng-container>
+                <ng-template #nofav>
+                  <button id="fav{{i+1}}" type="button" class="btn btn-warning btn-sm mr-1" title="¡Añadir a Favoritos!"
+                    (click)="favoritos(equipo)"><i class="fa fa-star-o"></i></button>
+                </ng-template>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <hr class="mb-0">
-  </div>
 
-  <h1 class="mt-2">Equipos</h1>
-  <div class="row">
-    <div class="col-6 col-sm-4 col-lg-3 p-3" *ngFor="let equipo of equipos.teams;let i = index">
-      <div class="card text-white">
-        <div (click)="mostrarEquipo(equipo.strTeam)">
-          <img [src]="equipo.strTeamBadge" class="card-img" alt="{{equipo.strTeam}}">
-        </div>
-        <div class="card-body p-0">
-          <h6 class="card-title p-2 m-0">{{equipo.strTeam}}</h6>
-          <div class="favorito d-flex flex-row-reverse">
-            <ng-container *ngIf="comparacion(equipo);else nofav">
-              <input class="col-lg-2" type="checkbox" id="del{{i+1}}" (click)="eliminarFavorito(equipo)" checked>
-              <label for="del{{i+1}}" class=" col-lg-3" title="¡Eliminar de Favoritos!"></label>
-            </ng-container>
-            <ng-template #nofav>
-              <input class="col-lg-2" type="checkbox" id="fav{{i+1}}" (click)="favoritos(equipo)">
-              <label for="fav{{i+1}}" class=" col-lg-3" title="¡Añadir a Favoritos!"></label>
-            </ng-template>
-          </div>
+    <div class="col-lg-4">
+      <div class="col-lg-6 tabla mt-5 mt-lg-0" id="tabla">
+        <h2 class="card-title text-left ">Tabla de Posiciones</h2>
+        <div class="table-responsive-sm ">
+          <table class="table table-sm table-hover ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Equipo</th>
+                <th scope="col">PJ</th>
+                <th scope="col">DF</th>
+                <th scope="col">Pts.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let equipopos of tabla.table; let i = index">
+                <td class="minScore">{{i+1}}</td>
+                <td class="minDate">{{equipopos.name}}</td>
+                <td>{{equipopos.played}}</td>
+                <td>{{equipopos.goalsdifference}}</td>
+                <td>{{equipopos.total}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+
+    <div class="col-lg-8">
+      <div class="table-responsive-sm mt-4">
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col" colspan="5" class="text-center">Ultimos Resultados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let partido of partidos.events;">
+              <ng-container *ngIf="partido.intRound == jornada() ">
+                <tr class="detalle_partido">
+                  <td class="minDate">{{partido.dateEvent}}</td>
+                  <ng-container *ngIf="partido.intHomeScore != null && partido.intAwayScore != null ; else nojugados">
+                      <td>Finalizado</td>
+                  </ng-container>
+                  <ng-template #nojugados>
+                      <td>{{partido.strTime}}</td>
+                  </ng-template>
+                  <th>{{partido.strHomeTeam}}</th>
+                  <th class="minScore">{{partido.intHomeScore}} - {{partido.intAwayScore}}</th>
+                  <th class="text-right">{{partido.strAwayTeam}}</th>
+                </tr>
+              </ng-container>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </div>

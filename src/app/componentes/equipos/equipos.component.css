@@ -1,9 +1,9 @@
 .card{
-    border:2px solid #37003c;
+    border:2px solid #000;
     cursor: pointer;
 }
 .body{
-    border:2px solid #37003c;
+    border:2px solid #000;
     background: #FFF;
 }
 .card {
@@ -30,9 +30,8 @@
     color: #f6ba58;
     cursor: pointer;
 }
-.card .card-body .favorito input[type="checkbox"]{
-    display: none;
-}
+
+
 
 .card .card-body .favorito label:after{
     content: '\f006';
@@ -47,67 +46,18 @@
     font-family: FontAwesome;
 }
 
+.card .card-body .favorito button{
+    margin-bottom: 5px;
+}
+
+.card .card-body h6{
+    font-size: 0.9rem;
+    height: 43px;
+    padding-right: 40px !important;
+}
+
+
 .card img{
     transform: scale(1.5);
-}
-
-@media (min-width: 992px) and (max-width: 1199px){
-    .card .card-body h6{
-        font-size: 1.3rem;
-    }
-    .card .card-body .favorito label{
-        bottom: 27px;
-        font-size: 26px;
-        left: 6px;
-    
-    }
-} 
-
- @media (min-width: 576px) and (max-width: 991px){
-    .card .card-body h6{
-        font-size: .9rem;
-    }
-    .card .card-body .favorito label{
-        bottom: 26px;
-        font-size: 26px;
-        left: 96px;
-    
-    }
-} 
-
-@media (min-width: 541px) and (max-width: 575px){
-    .card .card-body h6{
-        font-size: 1.4rem;
-    }
-
-    .card .card-body .favorito label{
-        bottom: 30px;
-        font-size: 25px;
-        left: 155px;
-    }
-}
-
-@media (min-width: 526px) and (max-width: 540px){
-    .card .card-body h6{
-        font-size: 1rem;
-    }
-    .card .card-body .favorito label{
-        bottom: 26px;
-        font-size: 26px;
-        left: 146px;
-    
-    }
-}
-
-@media (max-width: 525px) {
-    .card .card-body h6{
-        font-size: 1rem;
-    }
-    .card .card-body .favorito label{
-        bottom: 26px;
-        font-size: 26px;
-        left: 130px;
-    
-    }
 }
 

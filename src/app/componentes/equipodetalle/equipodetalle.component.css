@@ -1,5 +1,5 @@
 .informacion_equipo{
-    border:2px solid #37003c;
+    border:2px solid #000;
     background: #FFF;
 }
 
@@ -79,7 +79,9 @@
     font-size: 1.2rem;
 }
 
-
+.carousel{
+    width: 90%;
+}
 
 
 

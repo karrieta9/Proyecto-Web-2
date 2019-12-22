@@ -21,7 +21,7 @@
             <ng-container *ngFor="let partido of partidos.events;">
               <ng-container *ngIf="partido.idAwayTeam == equipo.idTeam || partido.idHomeTeam == equipo.idTeam">
                 <ng-container *ngIf="partido.intHomeScore != null && partido.intAwayScore != null ; else nojugados">
-                  <tr [routerLink]="['/equipos',name,'partidos',partido.idEvent]" class="detalle_partido">
+                  <tr [routerLink]="['/ligas',id,'equipos',name,'partidos',partido.idEvent]" class="detalle_partido">
                     <td class="minDate">{{partido.dateEvent}}</td>
                     <td>Finalizado</td>
                     <th>{{partido.strHomeTeam}}</th>

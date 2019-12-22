@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" [ngClass]="{'teamsRed': name=='Arsenal' || name=='Bournemouth' || name=='Liverpool' || name=='Man_United' || name=='Sheffield_United' || name=='Southampton' || name=='Ath_Bilbao' || name=='Ath_Madrid' || name=='Granada' || name=='Mallorca' || name=='Osasuna' || name=='Bayern_Munich' || name=='Ein_Frankfurt' || name=='Fortuna_Düsseldorf' || name=='Mainz' || name=='Leverkusen' || name=='Union_Berlin' || name=='Milan' || name=='Brest'|| name=='Dijon'|| name=='Monaco'|| name=='Nimes' || name=='Lille' || name=='Aves' || name=='Benfica' || name=='Braga' || name=='Santa_Clara', 'teamsBlue': name=='Brighton' || name=='Chelsea' || name=='Crystal_Palace' || name=='Everton' || name=='Leicester' || name=='Alaves' || name=='Sociedad' || name=='Barcelona' || name=='Getafe' || name=='Leganes' || name=='Eibar' || name=='Espanol' || name=='Hertha' || name=='Hoffenheim' || name=='Paderborn' || name=='Schalke_04' || name=='Atalanta'  || name=='Brescia' || name=='Inter'  || name=='Lecce' || name=='Sampdoria' || name=='Lyon' || name=='Montpellier' || name=='Paris_SG' || name=='Belenenses' || name=='Famalicao' || name=='FC_Porto', 'teamsMagenta': name=='Aston_Villa' || name=='West_Ham' || name=='Burnley', 'teamsLigthBlue': name=='Man_City' || name=='Celta_Vigo' || name=='Lazio' || name=='Napoli' || name=='SPAL_2013' || name=='Marseille' || name=='Strasbourg', 'teamsBlack': name=='Newcastle' || name=='Freiburg' || name=='M\'gladbach' || name=='Juventus' || name=='Udinese' || name=='Angers' || name=='Nice' || name=='Rennes' || name=='Boavista' || name=='Guimaraes' || name=='Portimonense', 'teamsLigthGreen': name=='Norwich' || name=='Betis' || name=='Werder_Bremen' || name=='Wolfsburg' || name=='Sassuolo' || name=='St_Etienne' || name=='Maritimo' || name=='Moreirense' || name=='Sporting_CP' || name=='Tondela' || name=='Vitoria_Setubal',  'teamsYellow': name=='Watford' || name=='Villarreal' || name=='Dortmund' || name=='Verona' || name=='Nantes' , 'teamsOrange': name=='Wolves' || name=='Roma', 'teamsPurple': name=='Valladolid' || name=='Fiorentina' || name=='Toulouse', 'teamsDarkBlue': name=='Levante' || name=='Bologna' || name=='Cagliari' || name=='Genoa' || name=='Bordeaux', 'teamsVino': name=='Torino' || name=='Metz' }">
+    
   <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,9 +10,9 @@
         <li class="nav-item mx-4">
           <a class="nav-link" pageScroll href="#info" pageScrollSpeed="3000">Informacion</a>
         </li>
-        <li class="nav-item mx-4">
+        <!-- <li class="nav-item mx-4">
           <a class="nav-link" pageScroll href="#plantel" pageScrollSpeed="3000">Plantel</a>
-        </li>
+        </li> -->
         <li class="nav-item mx-4">
           <a class="nav-link" pageScroll href="#eventos" pageScrollSpeed="3000">Eventos</a>
         </li>

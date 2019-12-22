@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { Router} from '@angular/router';
 
 import { EquiposService } from '../../servicios/equipos.service';
+import { DatoNavService } from 'src/app/servicios/dato-nav.service';
 
 @Component({
   selector: 'app-partidodetalle',
@@ -14,14 +15,19 @@ export class PartidodetalleComponent implements OnInit {
   detalle_partido: any = []
   local:any=[]
   visitante:any=[]
+  id:string='';
 
-  constructor(private equiposService: EquiposService, private activatedRoute: ActivatedRoute, private router:Router) { }
+  constructor(private equiposService: EquiposService, private activatedRoute: ActivatedRoute, private router:Router, private datoNavService:DatoNavService) { }
 
   ngOnInit() {
     
     const params = this.activatedRoute.snapshot.params;
 
-    if (params.nombre && params.idpartido) {
+    if (params.nombre && params.idpartido && params.id) {
+      this.id = params.id
+      this.datoNavService.idLiga = params.id
+      this.datoNavService.stringLogo = (this.datoNavService.buscarLiga(params.id).logo)
+      this.datoNavService.cambiarFondo(this.datoNavService.buscarLiga(params.id).bg);
       
       this.equiposService.getPartido(params.idpartido).subscribe(
         res => {
@@ -47,8 +53,8 @@ export class PartidodetalleComponent implements OnInit {
     
   }
 
-  mostrarEquipo(nombre:string){
+  mostrarEquipo(nombre:string, id:string){
     let name = nombre.replace(" ", "_");
-    this.router.navigate(['/equipos/',name]);
+    this.router.navigate(['/ligas',id,'equipos',name]);
   }
 }

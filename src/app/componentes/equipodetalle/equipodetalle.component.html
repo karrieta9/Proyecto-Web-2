@@ -1,56 +1,63 @@
 <ng-container class=" p-3" *ngFor="let detalle of detalle_equipo.teams; let i = index">
   <ng-container *ngIf="i==0">
-    <div class="informacion_equipo">
-      <app-navequipo></app-navequipo>
-      <div class="info-header" id="info">
-        <div class="row py-3">
-          <div class="col-5 col-md-4 col-lg-3 py-4 py-lg-0 ">
-            <div class="escudo text-center">
-              <img [src]="detalle.strTeamBadge" class="card-img-top">
-            </div>
+  <div class="informacion_equipo">
+    <app-navequipo [name]="name"></app-navequipo>
+    <div class="info-header" id="info">
+      <div class="row py-3">
+        <div class="col-5 col-md-4 col-lg-3 py-4 py-lg-0 ">
+          <div class="escudo text-center">
+            <img [src]="detalle.strTeamBadge" class="card-img-top">
           </div>
-          <div class="logo col-7 col-md-8 col-lg-9">
-            <div class="text-center">
-              <img [src]="detalle.strTeamLogo" class="card-img-top  col-lg-12">
+        </div>
+        <div class="logo col-7 col-md-8 col-lg-9">
+          <div class="text-center">
+            <ng-container *ngIf='detalle.strTeamLogo != null'>
+              <img [src]="detalle.strTeamLogo " class="card-img-top  col-lg-12">
+            </ng-container>
+          </div>
+          <h1 class="card-title">{{detalle.strTeam}}</h1>
+          <div class="row">
+            <div class="col-lg-6">
+              <h6 class="card-title">Redes Sociales: </h6>
+              <div class="redes_sociales d-flex justify-content-between">
+                <a href="https://{{detalle.strFacebook}}" target="blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://{{detalle.strTwitter}}" target="blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://{{detalle.strInstagram}}" target="blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://{{detalle.strYoutube}}" target="blank"><i class="fa fa-youtube"></i></a>
+                <a href="https://{{detalle.strWebsite}}" target="blank"><i class="fa fa-globe"></i></a>
+              </div>
             </div>
-            <h1 class="card-title">{{detalle.strTeam}}</h1>
-            <div class="row">
-              <div class="col-lg-6">
-                <h6 class="card-title">Redes Sociales: </h6>
-                <div class="redes_sociales d-flex justify-content-between">
-                  <a href="https://{{detalle.strFacebook}}" target="blank"><i class="fa fa-facebook"></i></a>
-                  <a href="https://{{detalle.strTwitter}}" target="blank"><i class="fa fa-twitter"></i></a>
-                  <a href="https://{{detalle.strInstagram}}" target="blank"><i class="fa fa-instagram"></i></a>
-                  <a href="https://{{detalle.strYoutube}}" target="blank"><i class="fa fa-youtube"></i></a>
-                  <a href="https://{{detalle.strWebsite}}" target="blank"><i class="fa fa-globe"></i></a>
-                </div>
-              </div>
-              <div class="col-lg-6 mt-4 mt-lg-0">
-                <h6>Pais: <span>{{detalle.strCountry}}</span></h6>
-                <h6>Liga: <span>{{detalle.strLeague}}</span></h6>
-              </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+              <h6>Pais: <span>{{detalle.strCountry}}</span></h6>
+              <h6>Liga: <span>{{detalle.strLeague}}</span></h6>
             </div>
           </div>
         </div>
       </div>
-      <div class="info-body p-3">
-        <p class="descripcion">{{detalle.strDescriptionES || detalle.strDescriptionEN}}</p>
-        <div class="row estadio my-6">
+    </div>
+    <div class="info-body p-3">
+      <p class="descripcion">{{detalle.strDescriptionES || detalle.strDescriptionEN}}</p>
+      <div class="row estadio my-6">
+        <ng-container *ngIf='detalle.strTeamJersey != null'>
           <div class="col-lg-6 camiseta text-center mb-5">
             <h2 class="card-title text-left">Camiseta</h2>
             <img [src]="detalle.strTeamJersey">
           </div>
-          <div class="col-lg-6 foto">
-            <h2 class="card-title">{{detalle.strStadium}}</h2>
+        </ng-container>
+        <div class="col-lg-6 foto">
+          <h2 class="card-title">{{detalle.strStadium}}</h2>
+          <ng-container *ngIf='detalle.strStadiumThumb != null'>
             <img [src]="detalle.strStadiumThumb">
-            <i class="fa fa-map-marker mt-2"></i> {{detalle.strStadiumLocation}}<br>
-            <i class="fa fa-users mt-2"></i> {{detalle.intStadiumCapacity}}
-          </div>
-
+          </ng-container>
+          <i class="fa fa-map-marker mt-2"></i> {{detalle.strStadiumLocation}}<br>
+          <i class="fa fa-users mt-2"></i> {{detalle.intStadiumCapacity}}
         </div>
-        <p class="descripcion_estadio">{{detalle.strStadiumDescription}}</p>
 
-        <div class="plantel my-6" id="plantel">
+      </div>
+      <p class="descripcion_estadio">{{detalle.strStadiumDescription}}</p>
+
+
+      <!-- <div class="plantel my-6" id="plantel">
           <h1 class="card-title text-left">Plantel del Equipo</h1>
 
           <div class="row">
@@ -66,104 +73,135 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="row eventos_tabla my-6">
-          <div class="col-lg-6 eventos mb-4" id="eventos">
-            <h2 class="card-title ">Eventos</h2>
-            <div class="table-responsive-sm">
-              <table class="table table-sm table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col" colspan="5" class="text-center">Ultimos 5 Partidos</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let evento of ultimos5.results">
-                    <td class="minDate">{{evento.dateEvent}}</td>
-                    <td>Finalizado</td>
-                    <th>{{evento.strHomeTeam}}</th>
-                    <th class="minScore">{{evento.intHomeScore}} - {{evento.intAwayScore}}</th>
-                    <th class="text-right">{{evento.strAwayTeam}}</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="table-responsive-sm">
-              <table class="table table-sm table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col" colspan="5" class="text-center">Proximos 5 Partidos</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let evento of proximos5.events">
-                    <td class="minDate">{{evento.dateEvent}}</td>
-                    <td>{{evento.strTime}}</td>
-                    <th>{{evento.strHomeTeam}}</th>
-                    <th class="minScore">Vs</th>
-                    <th class="text-right">{{evento.strAwayTeam}}</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <a [routerLink]="['/equipos',name,'partidos']"><i class="fa fa-futbol-o pt-4" aria-hidden="true"></i>
-              Partidos
-              de la Temporada</a>
+      <div class="row eventos_tabla my-6">
+        <div class="col-lg-6 eventos mb-4" id="eventos">
+          <h2 class="card-title ">Eventos</h2>
+          <div class="table-responsive-sm">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="5" class="text-center">Ultimos 5 Partidos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let evento of ultimos5.results">
+                  <td class="minDate">{{evento.dateEvent}}</td>
+                  <td>Finalizado</td>
+                  <th>{{evento.strHomeTeam}}</th>
+                  <th class="minScore">{{evento.intHomeScore}} - {{evento.intAwayScore}}</th>
+                  <th class="text-right">{{evento.strAwayTeam}}</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="col-lg-6 tabla float-right mt-5 mt-lg-0" id="tabla">
-            <h2 class="card-title text-left ">Tabla de Posiciones</h2>
-            <div class="table-responsive-sm ">
-              <table class="table table-sm table-hover ">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col" class="text-center">Equipo</th>
-                    <th scope="col">PJ</th>
-                    <th scope="col">PG</th>
-                    <th scope="col">PE</th>
-                    <th scope="col">PP</th>
-                    <th scope="col">GA</th>
-                    <th scope="col">GF</th>
-                    <th scope="col">DF</th>
-                    <th scope="col">Pts.</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let equipopos of tabla.table; let i = index">
+          <div class="table-responsive-sm">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="5" class="text-center">Proximos 5 Partidos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let evento of proximos5.events">
+                  <td class="minDate">{{evento.dateEvent}}</td>
+                  <td>{{evento.strTime}}</td>
+                  <th>{{evento.strHomeTeam}}</th>
+                  <th class="minScore">Vs</th>
+                  <th class="text-right">{{evento.strAwayTeam}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <a [routerLink]="['/ligas',id,'equipos',name,'partidos']"><i class="fa fa-futbol-o pt-4"
+              aria-hidden="true"></i>
+            Partidos
+            de la Temporada</a>
+        </div>
+        <div class="col-lg-6 tabla float-right mt-5 mt-lg-0" id="tabla">
+          <h2 class="card-title text-left ">Tabla de Posiciones</h2>
+          <div class="table-responsive-sm ">
+            <table class="table table-sm table-hover ">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col" class="text-center">Equipo</th>
+                  <th scope="col">PJ</th>
+                  <th scope="col">PG</th>
+                  <th scope="col">PE</th>
+                  <th scope="col">PP</th>
+                  <th scope="col">GA</th>
+                  <th scope="col">GF</th>
+                  <th scope="col">DF</th>
+                  <th scope="col">Pts.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let equipopos of tabla.table; let i = index">
 
-                    <ng-container *ngIf="equipopos.teamid == detalle.idTeam; else otros">
-                      <td class="minDate"><strong>{{i+1}}</strong></td>
-                      <td class="minDate"><strong>{{equipopos.name}}</strong></td>
-                      <td><strong>{{equipopos.played}}</strong></td>
-                      <td><strong>{{equipopos.win}}</strong></td>
-                      <td><strong>{{equipopos.draw}}</strong></td>
-                      <td><strong>{{equipopos.loss}}</strong></td>
-                      <td><strong>{{equipopos.goalsfor}}</strong></td>
-                      <td><strong>{{equipopos.goalsagainst}}</strong></td>
-                      <td><strong>{{equipopos.goalsdifference}}</strong></td>
-                      <td><strong>{{equipopos.total}}</strong></td>
-                    </ng-container>
+                  <ng-container *ngIf="equipopos.teamid == detalle.idTeam; else otros">
+                    <td class="minDate"><strong>{{i+1}}</strong></td>
+                    <td class="minDate"><strong>{{equipopos.name}}</strong></td>
+                    <td><strong>{{equipopos.played}}</strong></td>
+                    <td><strong>{{equipopos.win}}</strong></td>
+                    <td><strong>{{equipopos.draw}}</strong></td>
+                    <td><strong>{{equipopos.loss}}</strong></td>
+                    <td><strong>{{equipopos.goalsfor}}</strong></td>
+                    <td><strong>{{equipopos.goalsagainst}}</strong></td>
+                    <td><strong>{{equipopos.goalsdifference}}</strong></td>
+                    <td><strong>{{equipopos.total}}</strong></td>
+                  </ng-container>
 
-                    <ng-template #otros>
-                      <td class="minDate">{{i+1}}</td>
-                      <td class="minDate">{{equipopos.name}}</td>
-                      <td>{{equipopos.played}}</td>
-                      <td>{{equipopos.win}}</td>
-                      <td>{{equipopos.draw}}</td>
-                      <td>{{equipopos.loss}}</td>
-                      <td>{{equipopos.goalsfor}}</td>
-                      <td>{{equipopos.goalsagainst}}</td>
-                      <td>{{equipopos.goalsdifference}}</td>
-                      <td>{{equipopos.total}}</td>
-                    </ng-template>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                  <ng-template #otros>
+                    <td class="minDate">{{i+1}}</td>
+                    <td class="minDate">{{equipopos.name}}</td>
+                    <td>{{equipopos.played}}</td>
+                    <td>{{equipopos.win}}</td>
+                    <td>{{equipopos.draw}}</td>
+                    <td>{{equipopos.loss}}</td>
+                    <td>{{equipopos.goalsfor}}</td>
+                    <td>{{equipopos.goalsagainst}}</td>
+                    <td>{{equipopos.goalsdifference}}</td>
+                    <td>{{equipopos.total}}</td>
+                  </ng-template>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+
+      <ng-container
+        *ngIf='detalle.strTeamFanart1 != null && detalle.strTeamFanart2 != null && detalle.strTeamFanart3 != null'>
+      
+
+      <div id="fanarts" class="carousel slide m-auto pb-3" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#fanarts" data-slide-to="0" class="active"></li>
+          <li data-target="#fanarts" data-slide-to="1"></li>
+          <li data-target="#fanarts" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{{detalle.strTeamFanart1}}" alt="FanArt1">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{detalle.strTeamFanart2}}" alt="FanArt2">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{detalle.strTeamFanart3}}" alt="FanArt3">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#fanarts" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#fanarts" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+      </div>
+    </ng-container>
     </div>
-  </ng-container>
-</ng-container>
+  </div>

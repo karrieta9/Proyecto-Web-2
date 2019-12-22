@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background: url(assets/img/background.jpg) no-repeat;
+    background: url(assets/img/bg.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
 
@@ -32,6 +32,35 @@ p{
     letter-spacing: .7px;
     line-height: 1.4;
  }
+
+nav,footer{
+    background: #000;
+    --color: #000;
+}
+.liga{
+    background: #0C1B23;
+    --color: #0C1B23;
+}
+.premier {
+    background: #320035;
+    --color: #320035;
+}
+.bundes{
+    background: #B12829;
+    --color: #B12829;
+}
+.serie{
+    background: #0C5DAE;
+    --color: #0C5DAE;
+}
+.ligue{
+    background: #C9C9FF;
+    --color: #C9C9FF;
+}
+.primeria{
+    background: #0E0D0D;
+    --color: #0E0D0D;
+}
 
 @media (max-width: 720px){
     .container {

@@ -1,7 +1,21 @@
-<nav class="navbar navbar-dark mb-5" id="nav">
+<nav class="navbar navbar-dark mb-5 py-3" id="nav" [ngClass]="{'liga': datoNavService.idLiga =='4335' , 'premier': datoNavService.idLiga =='4328', 'bundes': datoNavService.idLiga =='4331', 'serie': datoNavService.idLiga =='4332', 'ligue': datoNavService.idLiga=='4334', 'primeria': datoNavService.idLiga=='4344' }">
+
     <a class="navbar-brand" routerLink="/">
-        <img src="../../../assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="./assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         PremierSports.com
       </a>
-      <img src="https://www.thesportsdb.com/images/media/league/logo/4c377s1535214890.png/preview" width="130" class="d-inline-block align-top" alt="">
+      <!-- <li style="color: aliceblue;">{{datoNavService.idLiga}}</li>
+      <li style="color: aliceblue;">{{datoNavService.stringLogo}}</li> -->
+
+      <!-- <ng-container *ngIf='id == 4328'>
+            <img src="https://www.thesportsdb.com/images/media/league/logo/4c377s1535214890.png/preview" width="130" class="d-inline-block align-top" alt="">
+      </ng-container> -->
+      <ng-container *ngIf='datoNavService.idLiga != "" && datoNavService.stringLogo != ""'>
+        <a class="navbar-brand p-0" [routerLink]="['/ligas',datoNavService.idLiga,'equipos']">
+            <div class="text-center">
+                <img [src]="datoNavService.stringLogo" width="100" class="d-inline-block align-top">
+            </div>
+          </a>
+      </ng-container>
+      
   </nav>

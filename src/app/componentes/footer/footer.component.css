@@ -1,7 +1,4 @@
-footer {
-    background: #200123;
-    
-}
+
 footer span{
     font-weight: bold;
 }
@@ -17,6 +14,7 @@ footer span{
 .icono i{
     font-size: 30px;
     font-weight: bold;
-    color:#200123;
+    /* //color:#37003c; */
+    color: var(--color)
 }
 

@@ -6,36 +6,51 @@ import { EquipodetalleComponent} from './componentes/equipodetalle/equipodetalle
 import { JugadordetalleComponent } from './componentes/jugadordetalle/jugadordetalle.component';
 import { PartidosComponent } from './componentes/partidos/partidos.component';
 import { PartidodetalleComponent} from './componentes/partidodetalle/partidodetalle.component';
+import { LigasComponent } from './componentes/ligas/ligas.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: EquiposComponent
+    component: LigasComponent
   },
   {
-    path: 'equipos',
+    path: 'ligas/',
     redirectTo: '',
     pathMatch: 'full'
   },
+  // {
+  //   path: 'equipos',
+  //   redirectTo: '',
+  //   pathMatch: 'full'
+  // },
   {
-    path: 'equipos/:nombre',
-    component: EquipodetalleComponent
+    path: 'ligas/:id/equipos',
+    component: EquiposComponent
   },
   {
-    path:'equipos/:nombre/jugador/:id',
-    component: JugadordetalleComponent
-  },
-  {
-    path:'equipos/:nombre/jugador',
-    redirectTo: 'equipos/:nombre',
+    path: 'ligas/:id/',
+    redirectTo: 'ligas/:id/equipos',
     pathMatch: 'full'
   },
   {
-    path: 'equipos/:nombre/partidos',
+    path: 'ligas/:id/equipos/:nombre',
+    component: EquipodetalleComponent
+  },
+  // {
+  //   path:'ligas/:id/equipos/:nombre/jugador/:idjugador',
+  //   component: JugadordetalleComponent
+  // },
+  // {
+  //   path:'ligas/:id/equipos/:nombre/jugador',
+  //   redirectTo: 'equipos/:nombre',
+  //   pathMatch: 'full'
+  // },
+  {
+    path: 'ligas/:id/equipos/:nombre/partidos',
     component: PartidosComponent
   },
   {
-    path: 'equipos/:nombre/partidos/:idpartido',
+    path: 'ligas/:id/equipos/:nombre/partidos/:idpartido',
     component: PartidodetalleComponent
   },
   {
@@ -45,7 +60,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash:true})],
+  // imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,59 @@
+.teamsRed{
+    background: #E31B23 !important;
+    
+}
+
+.teamsBlue{
+    background: #0A4595 !important;
+}
+
+.teamsMagenta{
+    background: #6A003B !important;
+}
+
+.teamsLigthBlue{
+    background: #6CAEE0 !important;
+}
+
+.teamsBlack{
+    background: #252424 !important;
+}
+
+.teamsLigthGreen{
+    background: #00A94F !important;
+}
+
+.teamsYellow{
+    background: #F4E059 !important;
+}
+.teamsOrange{
+    background: #F9A01B !important;
+}
+.teamsPurple{
+    background: #2D054E !important;
+}
+
+.teamsDarkBlue{
+    background: #1E2b41 !important;
+}
+
+.teamsVino{
+    background: #790407 !important;
+}
+
+nav a{
+    font-weight: bold;
+}
+nav ul li a {
+    color:  rgba(0, 0, 0, .7);
+}
+nav ul li a:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
+.teamsRed ul li a, .teamsBlue ul li a, .teamsMagenta ul li a, .teamsBlack ul li a, .teamsPurple ul li a , .teamsDarkBlue ul li a, .teamsVino ul li a {
+    color:  rgba(255, 255, 255, .7);
+}
+.teamsRed ul li a:hover, .teamsBlue ul li a:hover, .teamsMagenta ul li a:hover,  .teamsBlack ul li a:hover, .teamsPurple ul li a:hover , .teamsDarkBlue ul li a:hover, .teamsVino ul li a:hover {
+    color: rgba(255, 255, 255, 1);
+}

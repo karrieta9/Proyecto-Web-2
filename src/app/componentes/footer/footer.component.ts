@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatoNavService } from 'src/app/servicios/dato-nav.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public datoNavService:DatoNavService) { }
 
   ngOnInit() {
   }

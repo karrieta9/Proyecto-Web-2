@@ -1,6 +1,6 @@
-<footer class="page-footer font-small blue mt-4 p-4 text-center">
+<footer class="page-footer font-small blue mt-4 p-4 text-center" [ngClass]="{'liga': datoNavService.idLiga =='4335' , 'premier': datoNavService.idLiga =='4328', 'bundes': datoNavService.idLiga =='4331', 'serie': datoNavService.idLiga =='4332', 'ligue': datoNavService.idLiga=='4334', 'primeria': datoNavService.idLiga=='4344' }">
   <a class="icono p-2"><i class="fa fa-angle-double-up" pageScroll href="#nav" pageScrollSpeed="3000"></i></a>
-  <div class="footer-copyright py-3 text-white">© 2019 Copyright
+  <div class="footer-copyright py-3 text-white">© 2020 Copyright
     <span>Keiner Arrieta</span>
   </div>
 </footer>

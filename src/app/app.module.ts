@@ -16,6 +16,7 @@ import { PartidosComponent } from './componentes/partidos/partidos.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { NavequipoComponent } from './componentes/navequipo/navequipo.component';
+import { LigasComponent } from './componentes/ligas/ligas.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavequipoComponent } from './componentes/navequipo/navequipo.component'
     PartidosComponent,
     NavbarComponent,
     FooterComponent,
-    NavequipoComponent
+    NavequipoComponent,
+    LigasComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 
 import { EquiposService } from '../../servicios/equipos.service';
+import { DatoNavService } from 'src/app/servicios/dato-nav.service';
 
 @Component({
   selector: 'app-partidos',
@@ -14,15 +15,20 @@ export class PartidosComponent implements OnInit {
   equipo:any=[];
   cont:number=0;
   name:string = '';
+  id:string='';
 
-  constructor(private equiposService:EquiposService, private activatedRoute:ActivatedRoute) { }
+  constructor(private equiposService:EquiposService, private activatedRoute:ActivatedRoute, private datoNavService:DatoNavService) { }
 
   ngOnInit() {
     const params = this.activatedRoute.snapshot.params;
 
-    if (params.nombre) {
+    if (params.nombre && params.id) {
+      this.datoNavService.idLiga = params.id
+      this.datoNavService.stringLogo = (this.datoNavService.buscarLiga(params.id).logo)
+      this.datoNavService.cambiarFondo(this.datoNavService.buscarLiga(params.id).bg);
       this.name = params.nombre;
-      this.equiposService.getPartidos().subscribe(
+      this.id = params.id;
+      this.equiposService.getPartidos(params.id).subscribe(
         res => {
           this.partidos = res;
 

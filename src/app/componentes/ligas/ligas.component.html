@@ -1,0 +1,18 @@
+<div class="body px-4">
+  <h1 class="mt-2">Top 6</h1>
+  <div class="row">
+    <div class="col-6 col-sm-4 col-lg-4 p-4" *ngFor="let liga of datoNavService.ligas">
+      <div class="card text-white">
+        <div [routerLink]="['/ligas',liga.id,'equipos']">
+          <img [src]="liga.escudo" class="card-img" alt="{{liga.nombre}}">
+        </div>
+        <div class="card-body p-0">
+          <h6 class="card-title p-2 m-0">{{liga.nombre}}</h6>
+          <div class="flag d-flex flex-row-reverse">
+              <img [src]="liga.bandera"  class="card-img p-0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

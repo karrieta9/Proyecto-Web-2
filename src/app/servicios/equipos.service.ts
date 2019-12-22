@@ -10,9 +10,14 @@ export class EquiposService {
 
   constructor(private http: HttpClient) { }
 
-  getEquipos(){
-    return this.http.get(`${this.API_URI}/1/search_all_teams.php?l=English%20Premier%20League`);
+  getEquipos(id:string){
+    return this.http.get(`${this.API_URI}/1/lookup_all_teams.php?id=${id}`);
   }
+
+  getTablaPosiciones(id:string){
+    return this.http.get(`${this.API_URI}/1/lookuptable.php?l=${id}&s=1920`);
+  }
+
 
   getEquipo(nombre: string){
     return this.http.get(`${this.API_URI}/1/searchteams.php?t=${nombre}`);
@@ -38,12 +43,8 @@ export class EquiposService {
     return this.http.get(`${this.API_URI}/1/eventsnext.php?id=${id}`);
   }
 
-  getTablaPosiciones(){
-    return this.http.get(`${this.API_URI}/1/lookuptable.php?l=4328&s=1920`);
-  }
-
-  getPartidos(){
-    return this.http.get(`${this.API_URI}/1/eventsseason.php?id=4328&s=1920`);
+  getPartidos(id:string){
+    return this.http.get(`${this.API_URI}/1/eventsseason.php?id=${id}&s=1920`);
   }
 
   getPartido(id:string){
